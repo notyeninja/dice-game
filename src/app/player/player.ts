@@ -3,12 +3,9 @@ const uuid = require('uuid/v1');
 export class Player {
 
   id:string;
-  constructor(private _name){
+  currentScore:number;
+  totalScore:number;
+  constructor(public name){
     this.id = uuid();
   }
-
-  get name():string{
-    return this._name;
-  }
-
 }
