@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
   }
 
   startGame(){
-    debugger;
     this._router.navigate(['/game-board']);
   }
 }
