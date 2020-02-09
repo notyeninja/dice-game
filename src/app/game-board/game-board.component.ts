@@ -26,7 +26,7 @@ export class GameBoardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    debugger;
     this.players = this._gameService.getPlayersInfo();
     this.totalDice = this._gameService.getTotalDiceForGame();
   }

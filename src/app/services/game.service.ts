@@ -39,7 +39,6 @@ export class GameService {
       this.players.push(new Player(player));
       this.totalDice.push(new Dice());
     });
-
     this.totalDice.push(new Dice());
   }
 }

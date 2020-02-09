@@ -1,6 +1,20 @@
 <section class="section">
-  <div class="container">
-    <span *ngFor="let dice of totalDice; let i=index">{{i}}</span>
+  <div class="columns">
+    <div class="column is-10">
+      <div class="columns">
+        <div class="column" *ngFor="let dice of totalDice">
+          <app-dice [dice]="dice"></app-dice>
+        </div>
+      </div>
+    </div>
+    <div class="column is-2">
+      <div class="field">
+        <button class="button is-medium is-info is-outlined control">Roll Dice</button>
+      </div>
+      <div class="field">
+        <button class="button is-medium is-danger is-outlined control">Finish Turn</button>
+      </div>
+    </div>
   </div>
 </section>
 <section class="section">
@@ -8,7 +22,7 @@
     <div class="column" *ngFor="let player of players">
       <div class="card">
         <div class="card-header">
-          <div class="card-header-title">{{player}}</div>
+          <div class="card-header-title">{{player.name}}</div>
         </div>
       </div>
     </div>
