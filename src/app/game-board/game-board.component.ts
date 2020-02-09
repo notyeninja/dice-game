@@ -68,6 +68,7 @@ export class GameBoardComponent implements OnInit {
     if(selectedDice){
       selectedDice.isActive = false;
       this.disableRoll = this.remainingRoll() == 0;
+      if(this.remainingRoll() == 0) this.finishTurn();
     }
   }
 
@@ -76,7 +77,8 @@ export class GameBoardComponent implements OnInit {
   }
 
   finishTurn(){
-
+      //calculate the score for the active player
+      //change the active player and initialize the game board for them
   }
 
 }

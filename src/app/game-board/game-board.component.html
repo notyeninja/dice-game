@@ -13,10 +13,10 @@
                 (click)="rollDice()"
                 [disabled]="disableRoll">Roll Dice</button>
                 <br/>
-                <span>Rolled:{{ numOfTimesPlayerRolled }}</span><span>Remaining:{{ remainingRoll() }}</span>
+                <span>Rolled:{{ numOfTimesPlayerRolled }}</span><span>Left:{{ remainingRoll() }}</span>
       </div>
       <div class="field">
-        <button class="button is-medium is-danger is-outlined control">Finish Turn</button>
+        <button class="button is-medium is-danger is-outlined control" (click)="finishTurn()">Finish Turn</button>
       </div>
     </div>
   </div>
