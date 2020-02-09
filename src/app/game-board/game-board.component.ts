@@ -78,7 +78,13 @@ export class GameBoardComponent implements OnInit {
 
   finishTurn(){
       //calculate the score for the active player
+      let activePlayer = this.getActivePlayer();
+      activePlayer.currentScore = this._gameService.calculatePlayersScore();
       //change the active player and initialize the game board for them
+  }
+
+  private getActivePlayer():Player{
+     return this.players.find((p:Player) => p.id == this.activePlayerId);
   }
 
 }

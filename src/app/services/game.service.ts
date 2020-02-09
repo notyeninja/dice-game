@@ -31,7 +31,9 @@ export class GameService {
   }
 
   calculatePlayersScore(){
-
+     let score = 0;
+     this.totalDice.forEach((dice:Dice) => score += dice.currentValue);
+     return score;
   }
 
   private initializeGame(players:Array<string>){
