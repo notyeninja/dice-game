@@ -30,6 +30,10 @@ export class GameService {
     return this.totalDice;
   }
 
+  calculatePlayersScore(){
+
+  }
+
   private initializeGame(players:Array<string>){
 
     debugger;

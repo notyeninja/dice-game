@@ -9,7 +9,11 @@
     </div>
     <div class="column is-2">
       <div class="field">
-        <button class="button is-medium is-info is-outlined control" (click)="rollDice()">Roll Dice</button>
+        <button class="button is-medium is-info is-outlined control"
+                (click)="rollDice()"
+                [disabled]="disableRoll">Roll Dice</button>
+                <br/>
+                <span>Rolled:{{ numOfTimesPlayerRolled }}</span><span>Remaining:{{ remainingRoll() }}</span>
       </div>
       <div class="field">
         <button class="button is-medium is-danger is-outlined control">Finish Turn</button>
@@ -20,6 +24,7 @@
 <section class="section">
   <div class="columns">
     <div class="column" *ngFor="let player of players">
+      <span class="tag" [ngClass]="{'is-warning':isPlayersTurn(player)}">Turn</span>
       <app-player-statistics [player]="player"></app-player-statistics>
     </div>
   </div>

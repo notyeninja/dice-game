@@ -19,6 +19,9 @@ export class GameBoardComponent implements OnInit {
 
   players:Array<Player>;
   totalDice:Array<Dice>;
+  activePlayerId:string;
+  disableRoll:boolean;
+  numOfTimesPlayerRolled:number;
 
   constructor(private _gameService:GameService) {
      this.players = new Array<Player>();
@@ -26,24 +29,54 @@ export class GameBoardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.disableRoll = false;
     this.players = this._gameService.getPlayersInfo();
     this.totalDice = this._gameService.getTotalDiceForGame();
+    this.numOfTimesPlayerRolled = 0;
+
     if(this.totalDice){
       this.totalDice.forEach((dice:Dice) => dice.roll());
     }
+    //TODO: logic to randomize the array. May be this should go into the service
+    //this will be a golden source.
+    if(this.players){
+      this.activePlayerId = this.players[0].id;
+    }
+
   }
 
   rollDice(){
     if(this.totalDice){
+      this.disableRoll = true;
+      ++this.numOfTimesPlayerRolled;
       this.totalDice.forEach((dice:Dice) => dice.roll());
     }
+  }
+
+  remainingRoll():number{
+    if(this.totalDice){
+       let notActiveDice = (this.totalDice.filter(d => !d.isActive)).length;
+       if(notActiveDice == 0) return this.totalDice.length;
+       return this.totalDice.length - notActiveDice;
+    }
+
+    return 0;
   }
 
   selectDice(id:string){
     let selectedDice = this.totalDice.find((dice:Dice) => dice.id === id);
     if(selectedDice){
       selectedDice.isActive = false;
+      this.disableRoll = this.remainingRoll() == 0;
     }
+  }
+
+  isPlayersTurn(player:Player){
+    return player.id === this.activePlayerId;
+  }
+
+  finishTurn(){
+
   }
 
 }

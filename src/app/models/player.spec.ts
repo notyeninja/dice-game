@@ -1,6 +1,6 @@
 import { Player } from './player';
 
-fdescribe('Player', () => {
+describe('Player', () => {
 
   it('should create player with name', () => {
 
