@@ -1,3 +1,6 @@
 <div class="container">
     <app-add-player (onPlayerAdd)="playerAdd($event)"></app-add-player>
 </div>
+<div class="container">
+  <app-player-name-list [names]="players"></app-player-name-list>
+</div>

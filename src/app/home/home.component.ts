@@ -7,12 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  players:Array<string> = new Array<string>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   playerAdd(player:string){
-    alert(player);
+    debugger;
+    this.players.push(player);
   }
 }

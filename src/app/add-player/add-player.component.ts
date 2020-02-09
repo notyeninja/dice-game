@@ -8,12 +8,13 @@ import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 })
 export class AddPlayerComponent {
 
-  @Output() onPlayerAdd:EventEmitter<string> = new EventEmitter();
+  @Output() onPlayerAdd:EventEmitter<string> = new EventEmitter<string>();
   player:string;
 
   constructor() { }
 
-  addPlayer(){
+  addPlayer(evt){
+    evt.stopPropagation();
     this.onPlayerAdd.emit(this.player);
     this.player = '';
   }

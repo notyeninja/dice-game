@@ -1,11 +1,11 @@
 <div class="container">
-  <form  novalidate (submit)="addPlayer()">
+  <form  novalidate>
     <div class="field has-addons">
       <div class="control">
         <input type="text" class="input" name="player" required placeholder="Add New Player" [(ngModel)]="player">
       </div>
       <div class="control">
-        <button class="button is-info" (click)="addPlayer()">Add Player</button>
+        <button class="button is-info" (click)="addPlayer($event)">Add Player</button>
       </div>
     </div>
   </form>
