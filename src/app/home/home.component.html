@@ -1,9 +1,27 @@
-<div class="container">
-    <app-add-player (onPlayerAdd)="playerAdd($event)"></app-add-player>
-</div>
-<div class="container">
-  <app-player-name-list [names]="players"></app-player-name-list>
-</div>
-<div class="container">
-  <button class="button is-info" (click)="startGame()">Load Game</button>
-</div>
+<section class="section">
+  <div class="columns">
+    <div class="column is-8 is-offset-2">
+      <app-add-player (onPlayerAdd)="playerAdd($event)"></app-add-player>
+    </div>
+  </div>
+
+  <section class="section is-clipped">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <app-player-name-list [names]="players"></app-player-name-list>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <div class="field">
+          <div class="control is-expanded">
+            <button class="button is-info"
+            (click)="startGame()">Load Game</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+

@@ -1,4 +1,4 @@
-const uuid = require('uuid/v1');
+import uuid from 'uuid/v1';
 
 /**
  * Class that holds the state of a player

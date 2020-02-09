@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GameService } from '../services/game.service';
 
 /**
  *
@@ -17,7 +18,8 @@ export class HomeComponent implements OnInit {
 
   players:Array<string> = new Array<string>();
 
-  constructor(private _router:Router) { }
+  constructor(private _router:Router,
+              private _gameService:GameService) { }
 
   ngOnInit(): void {
   }
@@ -28,6 +30,7 @@ export class HomeComponent implements OnInit {
   }
 
   startGame(){
+    this._gameService.loadGame(this.players);
     this._router.navigate(['/game-board']);
   }
 }
