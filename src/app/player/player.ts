@@ -1,5 +1,11 @@
 const uuid = require('uuid/v1');
 
+/**
+ * Class that holds the state of a player
+ *
+ * @export
+ * @class Player
+ */
 export class Player {
 
   id:string;
