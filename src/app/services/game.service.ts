@@ -32,9 +32,21 @@ export class GameService {
 
   private initializeGame(players:Array<string>){
 
+    debugger;
     this.players = new Array<Player>();
     this.totalDice = new Array<Dice>();
 
+    if(players.length == 0){
+      //get it from the storage
+      let storedPlayers = JSON.parse(sessionStorage.getItem('players'));
+      this.createPlayersAndDiceForTheGame(storedPlayers);
+    }else{
+      sessionStorage.setItem('players',JSON.stringify(players));
+      this.createPlayersAndDiceForTheGame(players);
+    }
+  }
+
+  private createPlayersAndDiceForTheGame(players:Array<string>){
     players.forEach(player => {
       this.players.push(new Player(player));
       this.totalDice.push(new Dice());

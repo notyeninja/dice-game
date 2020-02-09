@@ -9,6 +9,7 @@ import { AddPlayerComponent } from './add-player/add-player.component';
 import { PlayerNameListComponent } from './player-name-list/player-name-list.component';
 import { GameBoardComponent } from './game-board/game-board.component';
 import { DiceComponent } from './dice/dice.component';
+import { PlayerStatisticsComponent } from './player-statistics/player-statistics.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DiceComponent } from './dice/dice.component';
     AddPlayerComponent,
     PlayerNameListComponent,
     GameBoardComponent,
-    DiceComponent
+    DiceComponent,
+    PlayerStatisticsComponent
   ],
   imports: [
     BrowserModule,

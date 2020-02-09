@@ -20,11 +20,7 @@
 <section class="section">
   <div class="columns">
     <div class="column" *ngFor="let player of players">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-header-title">{{player.name}}</div>
-        </div>
-      </div>
+      <app-player-statistics [player]="player"></app-player-statistics>
     </div>
   </div>
 </section>
