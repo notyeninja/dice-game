@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ export class HomeComponent implements OnInit {
 
   players:Array<string> = new Array<string>();
 
-  constructor() { }
+  constructor(private _router:Router) { }
 
   ngOnInit(): void {
   }
@@ -17,5 +18,10 @@ export class HomeComponent implements OnInit {
   playerAdd(player:string){
     debugger;
     this.players.push(player);
+  }
+
+  startGame(){
+    debugger;
+    this._router.navigate(['/game-board']);
   }
 }
