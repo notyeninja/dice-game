@@ -67,7 +67,11 @@ export class GameBoardComponent implements OnInit {
     let selectedDice = this.totalDice.find((dice:Dice) => dice.id === id);
     if(selectedDice){
       selectedDice.isActive = false;
-      this.disableRoll = this.remainingRoll() == 0;
+      //this.disableRoll = this.remainingRoll() == 0;
+      this.shouldDisableRoll();
+      //TODO the change to next player and score calculation is happening instantly
+      //This is confusing we should have a intermidiatory step which tells user
+      //that their turn is finished and system is calculating their score.
       if(this.remainingRoll() == 0) this.finishTurn();
     }
   }
@@ -81,10 +85,31 @@ export class GameBoardComponent implements OnInit {
       let activePlayer = this.getActivePlayer();
       activePlayer.currentScore = this._gameService.calculatePlayersScore();
       //change the active player and initialize the game board for them
+      this.setNextActivePlayer();
+      //set the stage for the now active player
+      this.totalDice.forEach((d:Dice) => {
+        d.roll();
+        d.isActive = true;
+      })
+      this.numOfTimesPlayerRolled = 0;
+      this.shouldDisableRoll();
+  }
+
+  private shouldDisableRoll(){
+    this.disableRoll = this.remainingRoll() == 0;
   }
 
   private getActivePlayer():Player{
      return this.players.find((p:Player) => p.id == this.activePlayerId);
+  }
+
+  private setNextActivePlayer(){
+     let indx = this.players.findIndex((p:Player) => p.id == this.activePlayerId);
+     if(indx !== -1 && (indx + 1) < this.players.length){
+        ++indx;
+        let nextActivePlayer = this.players[indx];
+        this.activePlayerId = nextActivePlayer.id;
+     }
   }
 
 }
