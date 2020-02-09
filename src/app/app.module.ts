@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { AddPlayerComponent } from './add-player/add-player.component';
 import { PlayerNameListComponent } from './player-name-list/player-name-list.component';
 import { GameBoardComponent } from './game-board/game-board.component';
+import { DiceComponent } from './dice/dice.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { GameBoardComponent } from './game-board/game-board.component';
     HomeComponent,
     AddPlayerComponent,
     PlayerNameListComponent,
-    GameBoardComponent
+    GameBoardComponent,
+    DiceComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,7 @@ import { GameBoardComponent } from './game-board/game-board.component';
     RouterModule.forRoot([
       { path:'game-board', component:GameBoardComponent},
       { path:'', component:HomeComponent }
-    ],{ enableTracing:true})
+    ],{ enableTracing:false})
   ],
   providers: [
 

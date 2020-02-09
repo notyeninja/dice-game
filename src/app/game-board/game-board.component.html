@@ -1,8 +1,16 @@
 <section class="section">
-  <p class="content">This is were the dice will go</p>
+  <div class="container">
+    <span *ngFor="let dice of totalDice; let i=index">{{i}}</span>
+  </div>
 </section>
 <section class="section">
   <div class="columns">
-
+    <div class="column" *ngFor="let player of players">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-title">{{player}}</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

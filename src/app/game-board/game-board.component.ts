@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../services/game.service';
+import { Player } from '../models/player';
+import { Dice } from '../models/dice';
 
 /**
  * The main dashboard where actual game statistics are displayed.
@@ -15,16 +17,18 @@ import { GameService } from '../services/game.service';
 })
 export class GameBoardComponent implements OnInit {
 
-  players:Array<string>;
+  players:Array<Player>;
+  totalDice:Array<Dice>;
 
   constructor(private _gameService:GameService) {
-     this.players = new Array<string>();
+     this.players = new Array<Player>();
+     this.totalDice = new Array<Dice>();
   }
 
   ngOnInit(): void {
 
-    let players = this._gameService.getPlayersInfo();
-    players.forEach( p => this.players.push(p.name));
+    this.players = this._gameService.getPlayersInfo();
+    this.totalDice = this._gameService.getTotalDiceForGame();
   }
 
 }
