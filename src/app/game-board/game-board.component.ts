@@ -28,12 +28,21 @@ export class GameBoardComponent implements OnInit {
   ngOnInit(): void {
     this.players = this._gameService.getPlayersInfo();
     this.totalDice = this._gameService.getTotalDiceForGame();
-    this.totalDice.forEach((dice:Dice) => dice.roll());
+    if(this.totalDice){
+      this.totalDice.forEach((dice:Dice) => dice.roll());
+    }
   }
 
   rollDice(){
     if(this.totalDice){
       this.totalDice.forEach((dice:Dice) => dice.roll());
+    }
+  }
+
+  selectDice(id:string){
+    let selectedDice = this.totalDice.find((dice:Dice) => dice.id === id);
+    if(selectedDice){
+      selectedDice.isActive = false;
     }
   }
 

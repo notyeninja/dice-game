@@ -1,1 +1,3 @@
-<p class="title is-4">{{dice.currentValue}}</p>
+<div [ngClass]="{'inactive':!dice.isActive}">
+  <p class="title is-4" (click)="selected()">{{dice.currentValue}}</p>
+</div>

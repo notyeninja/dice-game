@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
   }
 
   playerAdd(player:string){
-    debugger;
     this.players.push(player);
   }
 

@@ -1,0 +1,18 @@
+div{
+  height: 50px;
+  width: 50px;
+  border: 1px solid #1975d2;
+  padding-left: 15px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+div:hover{
+  border-width: 2px;
+}
+
+
+.inactive{
+  cursor: not-allowed;
+  background-color: gray;
+}

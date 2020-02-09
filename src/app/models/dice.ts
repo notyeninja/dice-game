@@ -10,7 +10,9 @@ export class Dice {
   }
 
   roll(){
-    let nextValue = Math.floor((Math.random() * 6) + 1);
-    this.currentValue = nextValue;
+    if(this.isActive){
+      let nextValue = Math.floor((Math.random() * 6) + 1);
+      this.currentValue = nextValue;
+    }
   }
 }
