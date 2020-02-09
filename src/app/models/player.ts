@@ -13,7 +13,7 @@ export class Player {
   private _totalScore:number;
 
   get totalScore():number{
-    return this._totalScore + this.currentScore;
+    return this._totalScore;
   }
   set currentScore(value){
       this._currentScore = value;

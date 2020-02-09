@@ -22,10 +22,14 @@ export class GameBoardComponent implements OnInit {
   activePlayerId:string;
   disableRoll:boolean;
   numOfTimesPlayerRolled:number;
+  totalRounds:number;
+  currentRound:number;
 
   constructor(private _gameService:GameService) {
      this.players = new Array<Player>();
      this.totalDice = new Array<Dice>();
+     this.totalRounds = 3;
+     this.currentRound = 1;
   }
 
   ngOnInit(): void {
@@ -109,6 +113,16 @@ export class GameBoardComponent implements OnInit {
         ++indx;
         let nextActivePlayer = this.players[indx];
         this.activePlayerId = nextActivePlayer.id;
+     }else if((indx !== -1 && ((indx + 1) == this.players.length))){
+
+         if(this.currentRound == this.totalRounds){
+           //game finished. run the game end logic
+         }else if(this.currentRound < this.totalRounds){
+            this.currentRound += 1;
+            //reset the active player to first.
+            this.activePlayerId = this.players[0].id;
+         }
+
      }
   }
 
