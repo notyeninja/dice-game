@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Dice } from '../models/dice';
+import { DiceAnimateService } from '../services/dice-animate.service';
 
 @Component({
   selector: 'app-dice',
@@ -14,9 +15,18 @@ export class DiceComponent implements OnInit {
   @Output()
   onSelect:EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() { }
+  animateDice:boolean;
+
+  constructor(private _diceAnimateService:DiceAnimateService) { }
 
   ngOnInit(): void {
+
+    this._diceAnimateService.animateDiceRoll$.subscribe(v => {
+       this.animateDice = v;
+       setTimeout(() => {
+         this.animateDice = false;
+       }, 1000);
+    });
   }
 
   selected(){

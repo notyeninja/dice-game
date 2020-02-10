@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from '../services/game.service';
 import { Player } from '../models/player';
 import { Dice } from '../models/dice';
+import { DiceAnimateService } from '../services/dice-animate.service';
 
 /**
  * The main dashboard where actual game statistics are displayed.
@@ -25,7 +26,8 @@ export class GameBoardComponent implements OnInit {
   totalRounds:number;
   currentRound:number;
 
-  constructor(private _gameService:GameService) {
+  constructor(private _gameService:GameService,
+              private _diceAnimateService:DiceAnimateService) {
      this.players = new Array<Player>();
      this.totalDice = new Array<Dice>();
      this.totalRounds = 3;
@@ -53,6 +55,7 @@ export class GameBoardComponent implements OnInit {
     if(this.totalDice){
       this.disableRoll = true;
       ++this.numOfTimesPlayerRolled;
+      this._diceAnimateService.animateDiceRoll();
       this.totalDice.forEach((dice:Dice) => dice.roll());
     }
   }
