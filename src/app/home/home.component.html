@@ -1,15 +1,15 @@
-<section class="section game-title has-text-centered">
+<section class="section game-title has-text-centered is-paddingless">
   <h1>Dice</h1>
   <h1 [ngClass]="{'game-title-animate': animateTitle}">Roll</h1>
 </section>
-<section class="section">
+<section class="section is-paddingless">
   <div class="columns">
     <div class="column is-8 is-offset-2">
       <app-add-player (onPlayerAdd)="playerAdd($event)"></app-add-player>
     </div>
   </div>
 
-  <section class="section is-clipped">
+  <section class="section is-clipped is-paddingless">
     <div class="columns">
       <div class="column is-8 is-offset-2">
         <app-player-name-list [names]="players"></app-player-name-list>

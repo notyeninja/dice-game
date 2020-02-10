@@ -14,6 +14,7 @@ body{
   font-size: 5rem;
   color: #d8dad3;;
 }
+
 .game-title h1:nth-child(2){
   font-size: 2rem;
   transition: all 0.8s linear;
@@ -24,14 +25,13 @@ body{
   transform: rotate(360deg);
 }
 
-
 .button{
   background-color: #e19c3e;
   border-color:#b98033;
 }
 
 .box{
-  background-color: #ebc084;
+  background-color: #eec995;/*#ebc084;*/
   border-color:#b98033;
 }
 
