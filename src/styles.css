@@ -3,7 +3,11 @@ html{
   background-color: #2d2a22;
 }
 body{
-  font-family: 'Luckiest Guy', cursive;
+  font-family: roboto, sans-serif, cursive;
+}
+
+.is-lucky-font{
+  font-family: 'Luckiest Guy';
 }
 
 .game-title h1{
@@ -41,4 +45,9 @@ body{
 
 input:focus, input:active{
   border-color: #d8dad3;
+}
+
+.is-warning{
+  background-color: #e19c3e!important;
+  border-color:#b98033!important;
 }

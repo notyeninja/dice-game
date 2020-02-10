@@ -7,7 +7,39 @@
   </div>
 </section>
 <section class="section">
-  <div class="field">
+  <div class="level">
+    <div class="level-left">
+
+      <div class="field is-grouped is-grouped-multiline level-item">
+        <div class="control">
+          <div class="tags has-addons">
+            <span class="tag">Rolled</span>
+            <span class="tag is-warning">{{ numOfTimesPlayerRolled }}</span>
+          </div>
+        </div>
+
+        <div class="control">
+          <div class="tags has-addons">
+            <span class="tag">Left</span>
+            <span class="tag is-warning">{{ remainingRoll() }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="level-left">
+      <button class="button is-outlined is-info level-item" (click)="rollDice()" [disabled]="disableRoll">Roll Dice</button>
+      <button class="button is-outlined is-danger level-item" (click)="finishTurn()">Finish Turn</button>
+    </div>
+    <div class="level-right">
+      <div class="tags has-addons level-item">
+        <span class="tag">Rounds</span>
+        <span class="tag is-warning">{{currentRound}}/{{totalRounds}}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="field">
     <button class="button is-medium is-info is-outlined control"
             (click)="rollDice()"
             [disabled]="disableRoll">Roll Dice</button>
@@ -20,7 +52,7 @@
   </div>
   <div>
     <span class="title is-6">Round: {{currentRound}}/{{totalRounds}}</span>
-  </div>
+  </div> -->
 </section>
 <!-- <section class="section">
   <div class="columns">
