@@ -51,3 +51,7 @@ input:focus, input:active{
   background-color: #e19c3e!important;
   border-color:#b98033!important;
 }
+
+.has-background-primary{
+  background-color: #e19c3e!important;
+}

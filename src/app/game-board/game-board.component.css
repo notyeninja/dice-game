@@ -1,1 +1,7 @@
-
+.card{
+  opacity: 0;
+  transition: all 2s ease-in;
+}
+.animate-popup{
+   opacity: 1;
+}

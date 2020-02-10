@@ -25,6 +25,8 @@ export class GameBoardComponent implements OnInit {
   numOfTimesPlayerRolled:number;
   totalRounds:number;
   currentRound:number;
+  showPopup:boolean;
+  popupMessage:string;
 
   constructor(private _gameService:GameService,
               private _diceAnimateService:DiceAnimateService) {
@@ -100,6 +102,17 @@ export class GameBoardComponent implements OnInit {
       })
       this.numOfTimesPlayerRolled = 0;
       this.shouldDisableRoll();
+
+  }
+
+  closeModel(){
+     this.popupMessage = '';
+     this.showPopup = false;
+  }
+
+  private preparePopup(message:string){
+    this.popupMessage = message;
+    this.showPopup = true;
   }
 
   private shouldDisableRoll(){
@@ -111,17 +124,27 @@ export class GameBoardComponent implements OnInit {
   }
 
   private setNextActivePlayer(){
+
      let indx = this.players.findIndex((p:Player) => p.id == this.activePlayerId);
      if(indx !== -1 && (indx + 1) < this.players.length){
+
+        this.preparePopup(`<h5 class="title is-5">Alright! Next player's turn.</h5>`);
         ++indx;
         let nextActivePlayer = this.players[indx];
         this.activePlayerId = nextActivePlayer.id;
      }else if((indx !== -1 && ((indx + 1) == this.players.length))){
 
          if(this.currentRound == this.totalRounds){
+            this.players.sort((p1,p2) => p1.totalScore - p2.totalScore);
+            let winner = this.players[0];
+            this.preparePopup(`<h5 class="title is-5">Winner!<h5><br/><h1 class="title has-text-danger is-1">${winner.name}</h1>`)
            //game finished. run the game end logic
          }else if(this.currentRound < this.totalRounds){
+
+            let currRound = this.currentRound;
             this.currentRound += 1;
+            let nxtRound = this.currentRound;
+            this.preparePopup(`<h4 class="title is-4">Round ${currRound} complete. Next round ${nxtRound}</h4>`);
             //reset the active player to first.
             this.activePlayerId = this.players[0].id;
          }

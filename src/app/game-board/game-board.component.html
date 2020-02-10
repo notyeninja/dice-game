@@ -1,8 +1,24 @@
+<div class="modal"
+     [ngClass]="{'is-active':showPopup}">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="card card-animate" [ngClass]="{'animate-popup': showPopup}">
+      <div class="card-content has-text-centered has-background-primary">
+        <div [innerHTML]="popupMessage"></div>
+      </div>
+    </div>
+  </div>
+  <button class="modal-close is-large"
+          (click)="closeModel()"
+          aria-label="close"></button>
+</div>
+
 <section class="section">
   <div class="columns">
-    <div class="column" *ngFor="let dice of totalDice">
+    <div class="column"
+         *ngFor="let dice of totalDice">
       <app-dice [dice]="dice"
-      (onSelect)="selectDice($event)"></app-dice>
+                (onSelect)="selectDice($event)"></app-dice>
     </div>
   </div>
 </section>
@@ -28,8 +44,11 @@
 
     </div>
     <div class="level-left">
-      <button class="button is-outlined is-info level-item" (click)="rollDice()" [disabled]="disableRoll">Roll Dice</button>
-      <button class="button is-outlined is-danger level-item" (click)="finishTurn()">Finish Turn</button>
+      <button class="button is-outlined is-info level-item"
+              (click)="rollDice()"
+              [disabled]="disableRoll">Roll Dice</button>
+      <button class="button is-outlined is-danger level-item"
+              (click)="finishTurn()">Finish Turn</button>
     </div>
     <div class="level-right">
       <div class="tags has-addons level-item">
