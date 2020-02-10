@@ -2,16 +2,19 @@
   <p class="title is-4" (click)="selected()">{{dice.currentValue}}</p>
 </div> -->
 
-<div class="dice" [ngClass]="{'dice-animate': animateDice}">
-  <div id="1" class="dice-node"></div>
-  <div id="2" class="dice-node"></div>
-  <div id="3" class="dice-node"></div>
+<div class="dice"
+     [ngClass]="{'dice-animate': animateDice, 'inactive':!dice.isActive}"
+     (click)="selected()">
+  <div id="1" class="dice-node" [ngClass]="{'is-active': shouldShow(1)}"></div>
+  <div id="2" class="dice-node" [ngClass]="{'is-active': shouldShow(2)}"></div>
+  <div id="3" class="dice-node" [ngClass]="{'is-active': shouldShow(3)}"></div>
   <div style="clear:both"></div>
   <div id="4" class="dice-node"></div>
-  <div id="5" class="dice-node"></div>
+  <div id="5" class="dice-node" [ngClass]="{'is-active':shouldShow(5)}"></div>
   <div id="6" class="dice-node"></div>
    <div style="clear:both"></div>
-  <div id="7" class="dice-node"></div>
-  <div id="8" class="dice-node"></div>
-  <div id="9" class="dice-node"></div>
+  <div id="7" class="dice-node" [ngClass]="{'is-active':shouldShow(7)}"></div>
+  <div id="8" class="dice-node" [ngClass]="{'is-active':shouldShow(8)}"></div>
+  <div id="9" class="dice-node" [ngClass]="{'is-active':shouldShow(9)}"></div>
 </div>
+<!-- <span>{{dice.currentValue}}</span> -->

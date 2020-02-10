@@ -10,27 +10,67 @@ import { DiceAnimateService } from '../services/dice-animate.service';
 export class DiceComponent implements OnInit {
 
   @Input()
-  dice:Dice;
+  dice: Dice;
 
   @Output()
-  onSelect:EventEmitter<string> = new EventEmitter<string>();
+  onSelect: EventEmitter<string> = new EventEmitter<string>();
 
-  animateDice:boolean;
+  animateDice: boolean;
 
-  constructor(private _diceAnimateService:DiceAnimateService) { }
+  constructor(private _diceAnimateService: DiceAnimateService) { }
 
   ngOnInit(): void {
 
     this._diceAnimateService.animateDiceRoll$.subscribe(v => {
-       this.animateDice = v;
-       setTimeout(() => {
-         this.animateDice = false;
-       }, 1000);
+
+      if (this.dice.isActive) {
+        this.animateDice = v;
+        setTimeout(() => {
+          this.animateDice = false;
+        }, 1000);
+      }
+
     });
+
   }
 
-  selected(){
-    this.onSelect.emit(this.dice.id);
+  selected() {
+    if (this.dice.isActive) {
+      this.onSelect.emit(this.dice.id);
+    }
+  }
+
+  shouldShow(val: number): boolean {
+    switch (val) {
+      case 1:
+      case 9:
+        return (this.dice.currentValue == 2 ||
+          this.dice.currentValue == 3 ||
+          this.dice.currentValue == 4 ||
+          this.dice.currentValue == 5 ||
+          this.dice.currentValue == 6);
+
+      case 2:
+      case 8:
+        return this.dice.currentValue == 6;
+
+      case 3:
+        return (this.dice.currentValue == 4 ||
+          this.dice.currentValue == 5 ||
+          this.dice.currentValue == 6);
+
+      case 5:
+        return (this.dice.currentValue == 1 ||
+          this.dice.currentValue == 3 ||
+          this.dice.currentValue == 5);
+
+      case 7:
+        return (this.dice.currentValue == 4 ||
+          this.dice.currentValue == 5 ||
+          this.dice.currentValue == 6);
+
+    }
+
   }
 
 }
