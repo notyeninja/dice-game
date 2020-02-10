@@ -6,6 +6,25 @@ body{
   font-family: 'Luckiest Guy', cursive;
 }
 
+.game-title h1{
+  display: inline-block;
+}
+
+.game-title h1:nth-child(1){
+  font-size: 5rem;
+  color: #d8dad3;;
+}
+.game-title h1:nth-child(2){
+  font-size: 2rem;
+  transition: all 0.8s linear;
+  color:  #e19c3e;
+}
+
+.game-title-animate{
+  transform: rotate(360deg);
+}
+
+
 .button{
   background-color: #e19c3e;
   border-color:#b98033;
