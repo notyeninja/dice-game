@@ -1,4 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+  background-color: #2d2a22;
+}
 body{
   font-family: 'Luckiest Guy', cursive;
+}
+
+.button{
+  background-color: #e19c3e;
+  border-color:#b98033;
+}
+
+.box{
+  background-color: #ebc084;
+  border-color:#b98033;
+}
+
+.input{
+  background-color: #d8dad3;
+}
+
+input:focus, input:active{
+  border-color: #d8dad3;
 }
