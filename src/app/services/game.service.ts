@@ -38,7 +38,6 @@ export class GameService {
 
   private initializeGame(players:Array<string>){
 
-    debugger;
     this.players = new Array<Player>();
     this.totalDice = new Array<Dice>();
 
