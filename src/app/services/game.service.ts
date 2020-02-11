@@ -32,7 +32,7 @@ export class GameService {
 
   calculatePlayersScore(){
      let score = 0;
-     this.totalDice.forEach((dice:Dice) => score += dice.currentValue);
+     this.totalDice.forEach((dice:Dice) => score += (dice.currentValue == 4? 0 : dice.currentValue));
      return score;
   }
 
