@@ -1,5 +1,11 @@
 import uuid from 'uuid/v1';
 
+/**
+ * Model that describes state and behavior of a dice.
+ *
+ * @export
+ * @class Dice
+ */
 export class Dice {
   isActive:boolean;
   currentValue:number;

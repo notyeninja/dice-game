@@ -2,6 +2,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Dice } from '../models/dice';
 import { DiceAnimateService } from '../services/dice-animate.service';
 
+/**
+ * Component that describes the UI for a dice.
+ *
+ * @export
+ * @class DiceComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-dice',
   templateUrl: './dice.component.html',

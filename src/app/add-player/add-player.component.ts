@@ -1,6 +1,12 @@
 import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 
 
+/**
+ * Component to add new players to the game.
+ *
+ * @export
+ * @class AddPlayerComponent
+ */
 @Component({
   selector: 'app-add-player',
   templateUrl: './add-player.component.html',

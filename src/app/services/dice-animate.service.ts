@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+/**
+ * Notification service determines when to trigger dice animation.
+ *
+ * @export
+ * @class DiceAnimateService
+ */
 @Injectable({
   providedIn: 'root'
 })
