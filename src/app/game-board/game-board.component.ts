@@ -136,11 +136,12 @@ export class GameBoardComponent implements OnInit {
         this.activePlayerId = nextActivePlayer.id;
      }else if((indx !== -1 && ((indx + 1) == this.players.length))){
 
+          //game finished. run the game end logic
          if(this.currentRound == this.totalRounds){
             this.players.sort((p1,p2) => p1.totalScore - p2.totalScore);
             let winner = this.players[0];
             this.preparePopup(`<h5 class="title is-5">Winner!<h5><br/><h1 class="title has-text-danger is-1">${winner.name}</h1>`)
-           //game finished. run the game end logic
+
          }else if(this.currentRound < this.totalRounds){
 
             let currRound = this.currentRound;
