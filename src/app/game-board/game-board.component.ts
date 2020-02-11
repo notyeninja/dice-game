@@ -140,6 +140,7 @@ export class GameBoardComponent implements OnInit {
          if(this.currentRound == this.totalRounds){
             this.players.sort((p1,p2) => p1.totalScore - p2.totalScore);
             let winner = this.players[0];
+            this.activePlayerId = '';
             this.preparePopup(`<h5 class="title is-5">Winner!<h5><br/><h1 class="title has-text-danger is-1">${winner.name}</h1>`)
 
          }else if(this.currentRound < this.totalRounds){
@@ -149,6 +150,9 @@ export class GameBoardComponent implements OnInit {
             let nxtRound = this.currentRound;
             this.preparePopup(`<h4 class="title is-4">Round ${currRound} complete. Next round ${nxtRound}</h4>`);
             //reset the active player to first.
+
+            let currPlayer = this.players.shift();
+            this.players.push(currPlayer);
             this.activePlayerId = this.players[0].id;
          }
 
