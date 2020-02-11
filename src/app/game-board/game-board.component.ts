@@ -32,7 +32,7 @@ export class GameBoardComponent implements OnInit {
               private _diceAnimateService:DiceAnimateService) {
      this.players = new Array<Player>();
      this.totalDice = new Array<Dice>();
-     this.totalRounds = 3;
+     this.totalRounds;
      this.currentRound = 1;
   }
 
@@ -41,6 +41,7 @@ export class GameBoardComponent implements OnInit {
     this.players = this._gameService.getPlayersInfo();
     this.totalDice = this._gameService.getTotalDiceForGame();
     this.numOfTimesPlayerRolled = 0;
+    this.totalRounds = this.players.length;
 
     if(this.totalDice){
       this.totalDice.forEach((dice:Dice) => dice.roll());
