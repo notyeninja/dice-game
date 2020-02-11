@@ -102,6 +102,7 @@ export class GameBoardComponent implements OnInit {
       })
       this.numOfTimesPlayerRolled = 0;
       this.shouldDisableRoll();
+      this.totalDice.forEach((d:Dice) => d.roll);
 
   }
 

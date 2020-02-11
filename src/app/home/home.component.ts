@@ -17,20 +17,17 @@ import { GameService } from '../services/game.service';
 export class HomeComponent implements OnInit, AfterViewInit {
 
   players:Array<string> = new Array<string>();
-  animateTitle:boolean;
 
   constructor(private _router:Router,
               private _gameService:GameService) {
-                this.animateTitle = false;
+
               }
 
   ngOnInit(): void {
 
   }
   ngAfterViewInit(){
-    setTimeout(() => {
-      this.animateTitle = true;
-    }, 1000);
+
   }
 
   playerAdd(player:string){

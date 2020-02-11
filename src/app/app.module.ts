@@ -10,6 +10,7 @@ import { PlayerNameListComponent } from './player-name-list/player-name-list.com
 import { GameBoardComponent } from './game-board/game-board.component';
 import { DiceComponent } from './dice/dice.component';
 import { PlayerStatisticsComponent } from './player-statistics/player-statistics.component';
+import { DiceLogoComponent } from './dice-logo/dice-logo.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PlayerStatisticsComponent } from './player-statistics/player-statistics
     PlayerNameListComponent,
     GameBoardComponent,
     DiceComponent,
-    PlayerStatisticsComponent
+    PlayerStatisticsComponent,
+    DiceLogoComponent
   ],
   imports: [
     BrowserModule,
